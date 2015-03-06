@@ -1,0 +1,14 @@
+server {
+	listen   80; ## listen for ipv4; this line is default and implied
+
+	root /var/www/MyDownloader;
+	server_name downloader.fishedee.com;
+
+	rewrite ^/(.*) /static/$1 last;
+
+	location / {
+		expires max;
+		try_files $uri =404;
+	}
+
+}
